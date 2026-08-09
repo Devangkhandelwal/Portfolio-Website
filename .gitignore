@@ -1,18 +1,28 @@
-# Logs
+# Dependencies & Build Outputs
+node_modules/
+dist/
+dist-ssr/
+*.tsbuildinfo
+
+# Logs & Debug
 logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Local & Environment
+.env
+.env.local
+.env.*.local
 *.local
 
-# Editor directories and files
+# Cache Directories
+.vite/
+.cache/
+
+# Editor & OS files
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -23,6 +33,4 @@ dist-ssr
 *.sln
 *.sw?
 .npmrc
-
 backup/
-.env

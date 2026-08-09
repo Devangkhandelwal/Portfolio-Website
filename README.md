@@ -1,14 +1,20 @@
 # 🚀 Devang Khandelwal — Personal Portfolio
 
-A modern, high-performance interactive developer portfolio built with **React**, **TypeScript**, **Three.js**, **React Three Fiber**, and **GSAP**. Features an interactive 3D avatar, real-time LeetCode problem-solving stats with a GitHub-style heatmap, 3D physics-based tech stack spheres, and smooth scroll animations.
+[![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue.svg)](https://www.typescriptlang.org/)
+[![Three.js](https://img.shields.io/badge/Three.js-WebGL-black.svg)](https://threejs.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.4.1-purple.svg)](https://vitejs.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+A modern, high-performance interactive 3D developer portfolio built with **React**, **TypeScript**, **Three.js**, **React Three Fiber**, **Rapier 3D Physics**, and **GSAP**. Features an interactive 3D avatar, real-time LeetCode problem-solving statistics with a submission heatmap, 3D physics-based tech stack spheres, and fluid scroll animations.
 
 ---
 
-## ✨ Features
+## ✨ Key Features
 
 - 🎭 **Interactive 3D Avatar Scene**: Custom animated 3D character powered by Three.js & GLTF skeletal animations.
 - ⚡ **Optimized WebGL Performance**: Viewport-based WebGL pausing using `IntersectionObserver`, capped pixel ratios, and frame-deferred cursor animations for 60+ FPS scrolling.
-- 📊 **Real-time LeetCode Statistics**: Live integration with LeetCode's GraphQL API via serverless endpoint (`api/leetcode-stats.ts`), rendering submission heatmaps, streaks, and problem breakdown.
+- 📊 **Real-Time LeetCode Statistics**: Live integration with LeetCode's GraphQL API via serverless endpoint (`api/leetcode-stats.ts`), rendering submission heatmaps, streaks, and problem breakdown.
 - ⚽ **3D Physics Tech Stack**: Interactive rigid-body 3D spheres using `@react-three/rapier` and custom shader materials.
 - 📜 **GSAP Smooth Scrolling**: Fluid section transitions driven by GSAP ScrollTrigger & ScrollSmoother.
 - 💻 **Showcase Projects**: Highlighting full-stack FinTech applications, computer vision deep learning research, and algorithmic systems.
@@ -21,7 +27,7 @@ A modern, high-performance interactive developer portfolio built with **React**,
 - **Core**: React 18, TypeScript, Vite
 - **3D & Graphics**: Three.js, React Three Fiber (`@react-three/fiber`), React Three Drei, `@react-three/rapier` (Physics), `@react-three/postprocessing`
 - **Animations**: GSAP (ScrollTrigger, ScrollSmoother, SplitText)
-- **Styling**: Vanilla CSS3 (Custom Responsive System)
+- **Styling**: Custom Responsive CSS Design System
 
 ### **Backend, ML & Algorithms**
 - **Languages**: Python, C++, Java, JavaScript, TypeScript
@@ -38,10 +44,11 @@ Portfolio-Website/
 ├── api/                     # Serverless functions (LeetCode GraphQL API proxy)
 │   └── leetcode-stats.ts
 ├── public/                  # Static assets, images, 3D models & HDR maps
-│   ├── images/
-│   └── models/
+│   ├── draco/               # Draco 3D mesh compression decoders
+│   ├── images/              # Tech icons & project showcase screenshots
+│   └── models/              # Character 3D GLB model & environment maps
 ├── src/
-│   ├── assets/              # Web assets
+│   ├── assets/              # Static web assets
 │   ├── components/          # React components
 │   │   ├── Character/       # 3D Character canvas & skeletal animation logic
 │   │   ├── About.tsx
@@ -64,7 +71,9 @@ Portfolio-Website/
 │   └── main.tsx
 ├── package.json
 ├── vite.config.ts
-└── tsconfig.json
+├── tsconfig.json
+├── LICENSE
+└── README.md
 ```
 
 ---
@@ -76,11 +85,11 @@ Portfolio-Website/
 - **Node.js**: v18.x or higher
 - **npm**: v9.x or higher
 
-### Installation
+### Installation & Local Setup
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/MoncyDev/Portfolio-Website.git
+   git clone https://github.com/Devangkhandelwal/Portfolio-Website.git
    cd Portfolio-Website
    ```
 
@@ -105,13 +114,11 @@ Portfolio-Website/
 ## 📬 Contact & Links
 
 - **Name**: Devang Khandelwal
-- **Education**: CS Undergraduate @ UPES Dehradun
 - **Email**: [devangkh.dk@gmail.com](mailto:devangkh.dk@gmail.com)
-- **LinkedIn**: [Devang Khandelwal](https://linkedin.com)
-- **GitHub**: [Devang Khandelwal](https://github.com)
+- **GitHub**: [@Devangkhandelwal](https://github.com/Devangkhandelwal)
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License / Personal Portfolio License. Feel free to use the code for learning and inspiration.
+This project is licensed under the [MIT License](LICENSE) - see the file for details.
