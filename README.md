@@ -1,65 +1,117 @@
-# My Portfolio Website - Overview 🚀
+# 🚀 Devang Khandelwal — Personal Portfolio
 
-This repository contains the open-source version of my personal portfolio website.  
-Feel free to explore the code and use it for learning and inspiration.
-
----
-
-## ⚠️ Usage Notice
-
-This project is shared for learning purposes only.
-
-Please do NOT:
-- Clone or replicate the full website or design
-- Repost it with minor content changes
-- Use this project for commercial/client work
-- Create tutorials or content using this exact project
-
-If you use parts of the code, you must provide proper credit linking back to the original repository.
-
-Build your own version — don’t just copy.
-
-— Moncy Yohannan
+A modern, high-performance interactive developer portfolio built with **React**, **TypeScript**, **Three.js**, **React Three Fiber**, and **GSAP**. Features an interactive 3D avatar, real-time LeetCode problem-solving stats with a GitHub-style heatmap, 3D physics-based tech stack spheres, and smooth scroll animations.
 
 ---
 
-## 🛠️ Instructions
+## ✨ Features
 
-I have modified the GSAP Club plugins using trial versions.  
-⚠️ Note: Trial plugins cannot be used for production or hosting.
-
-For official GSAP Club plugins, refer here:  
-https://gsap.com/docs/v3/Installation/
-
----
-
-## ⚙️ Tech Stack
-
-React • TypeScript • GSAP • Three.js • WebGL • HTML • CSS • JavaScript
+- 🎭 **Interactive 3D Avatar Scene**: Custom animated 3D character powered by Three.js & GLTF skeletal animations.
+- ⚡ **Optimized WebGL Performance**: Viewport-based WebGL pausing using `IntersectionObserver`, capped pixel ratios, and frame-deferred cursor animations for 60+ FPS scrolling.
+- 📊 **Real-time LeetCode Statistics**: Live integration with LeetCode's GraphQL API via serverless endpoint (`api/leetcode-stats.ts`), rendering submission heatmaps, streaks, and problem breakdown.
+- ⚽ **3D Physics Tech Stack**: Interactive rigid-body 3D spheres using `@react-three/rapier` and custom shader materials.
+- 📜 **GSAP Smooth Scrolling**: Fluid section transitions driven by GSAP ScrollTrigger & ScrollSmoother.
+- 💻 **Showcase Projects**: Highlighting full-stack FinTech applications, computer vision deep learning research, and algorithmic systems.
 
 ---
 
-## 🎨 Assets Usage
+## 🛠️ Tech Stack
 
-Some 3D assets included in this repository are free to use for learning purposes.
+### **Frontend & 3D WebGL**
+- **Core**: React 18, TypeScript, Vite
+- **3D & Graphics**: Three.js, React Three Fiber (`@react-three/fiber`), React Three Drei, `@react-three/rapier` (Physics), `@react-three/postprocessing`
+- **Animations**: GSAP (ScrollTrigger, ScrollSmoother, SplitText)
+- **Styling**: Vanilla CSS3 (Custom Responsive System)
 
-However:
-
-- The original 3D avatar used on my live portfolio is NOT included in this repository
-- That avatar is a custom asset created over ~1 month
-- It is not open source and not available for reuse
-
-Any usage, extraction, or redistribution of that avatar from my live website is strictly prohibited.
+### **Backend, ML & Algorithms**
+- **Languages**: Python, C++, Java, JavaScript, TypeScript
+- **Backend Frameworks**: Django, FastAPI, REST APIs, PostgreSQL
+- **Machine Learning & Vision**: TensorFlow, EfficientNet-B0, XGBoost, SHAP, OpenCV, MediaPipe
+- **Algorithms**: Min-Heap Workload Routing, Data Structures & Algorithms (200+ LeetCode Solved)
 
 ---
 
-![Protfolio-Preview](https://github.com/user-attachments/assets/3c4557e7-6392-4928-b8a9-7b2476ef4edd)
+## 📂 Project Structure
+
+```text
+Portfolio-Website/
+├── api/                     # Serverless functions (LeetCode GraphQL API proxy)
+│   └── leetcode-stats.ts
+├── public/                  # Static assets, images, 3D models & HDR maps
+│   ├── images/
+│   └── models/
+├── src/
+│   ├── assets/              # Web assets
+│   ├── components/          # React components
+│   │   ├── Character/       # 3D Character canvas & skeletal animation logic
+│   │   ├── About.tsx
+│   │   ├── Career.tsx
+│   │   ├── Contact.tsx
+│   │   ├── Cursor.tsx
+│   │   ├── DSA.tsx
+│   │   ├── Landing.tsx
+│   │   ├── LeetCodeStats.tsx
+│   │   ├── Loading.tsx
+│   │   ├── MainContainer.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── TechStack.tsx    # 3D Physics spheres canvas
+│   │   ├── WhatIDo.tsx
+│   │   └── Work.tsx
+│   ├── context/             # React Context Providers (LoadingProvider)
+│   ├── data/                # Static data & bone mappings
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
+├── package.json
+├── vite.config.ts
+└── tsconfig.json
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js**: v18.x or higher
+- **npm**: v9.x or higher
+
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/MoncyDev/Portfolio-Website.git
+   cd Portfolio-Website
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+   Open `http://localhost:5173` in your browser.
+
+4. **Build for production**:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 📬 Contact & Links
+
+- **Name**: Devang Khandelwal
+- **Education**: CS Undergraduate @ UPES Dehradun
+- **Email**: [devangkh.dk@gmail.com](mailto:devangkh.dk@gmail.com)
+- **LinkedIn**: [Devang Khandelwal](https://linkedin.com)
+- **GitHub**: [Devang Khandelwal](https://github.com)
 
 ---
 
 ## 📄 License
 
-This project is licensed under the Personal Portfolio License (PPL) v1.0.
-
-See the LICENSE file for full details
-
+This project is licensed under the MIT License / Personal Portfolio License. Feel free to use the code for learning and inspiration.

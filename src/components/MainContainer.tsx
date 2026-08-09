@@ -1,4 +1,4 @@
-import { lazy, PropsWithChildren, Suspense, useEffect, useState } from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
 import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
@@ -6,11 +6,11 @@ import Cursor from "./Cursor";
 import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
+import DSA from "./DSA";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
+import TechStack from "./TechStack";
 import setSplitText from "./utils/splitText";
-
-const TechStack = lazy(() => import("./TechStack"));
 
 const MainContainer = ({ children }: PropsWithChildren) => {
   const [isDesktopView, setIsDesktopView] = useState<boolean>(
@@ -23,11 +23,11 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       setIsDesktopView(window.innerWidth > 1024);
     };
     resizeHandler();
-    window.addEventListener("resize", resizeHandler);
+    window.addEventListener("resize", resizeHandler, { passive: true });
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
-  }, [isDesktopView]);
+  }, []);
 
   return (
     <div className="container-main">
@@ -42,12 +42,9 @@ const MainContainer = ({ children }: PropsWithChildren) => {
             <About />
             <WhatIDo />
             <Career />
+            <DSA />
             <Work />
-            {isDesktopView && (
-              <Suspense fallback={<div>Loading....</div>}>
-                <TechStack />
-              </Suspense>
-            )}
+            {isDesktopView && <TechStack />}
             <Contact />
           </div>
         </div>

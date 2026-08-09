@@ -35,27 +35,46 @@ const Navbar = () => {
         }
       });
     });
-    window.addEventListener("resize", () => {
-      ScrollSmoother.refresh(true);
-    });
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("load", handleResize);
+
+    const t1 = setTimeout(() => ScrollTrigger.refresh(), 500);
+    const t2 = setTimeout(() => ScrollTrigger.refresh(), 1500);
+    const t3 = setTimeout(() => ScrollTrigger.refresh(), 3000);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("load", handleResize);
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+    };
   }, []);
   return (
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          Logo
+          DEVANG
         </a>
         <a
-          href="mailto:example@mail.com"
+          href="mailto:devangkh.dk@gmail.com"
           className="navbar-connect"
           data-cursor="disable"
         >
-          example@mail.com
+          devangkh.dk@gmail.com
         </a>
         <ul>
           <li>
             <a data-href="#about" href="#about">
               <HoverLinks text="ABOUT" />
+            </a>
+          </li>
+          <li>
+            <a data-href="#dsa" href="#dsa">
+              <HoverLinks text="DSA" />
             </a>
           </li>
           <li>

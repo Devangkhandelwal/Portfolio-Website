@@ -128,6 +128,40 @@
 .work-image img {
   max-width: 100%;
   max-height: 350px;
+  display: block;
+}
+.work-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 12, 18, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  transform: translateY(12px);
+  border-radius: 8px;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.work-image-in:hover .work-hover-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+.work-hover-overlay p {
+  color: #f1ecf5;
+  font-size: 14.5px;
+  line-height: 1.55;
+  font-weight: 300;
+  text-align: center;
+  margin: 0;
 }
 @media only screen and (max-height: 900px) {
   .work-image img {
@@ -165,14 +199,14 @@
     font-size: 50px;
   }
 }
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1100px) {
   .work-box {
-    width: 350px;
-    padding: 30px;
+    width: 400px;
+    padding: 35px;
   }
   .work-flex {
-    margin-left: -30px;
-    padding-right: 45px;
+    margin-left: -35px;
+    padding-right: 50px;
   }
 }
 

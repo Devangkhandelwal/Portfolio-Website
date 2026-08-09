@@ -13,6 +13,10 @@ import {
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
+  "/images/python.jpg",
+  "/images/cpp.png",
+  "/images/fastapi.png",
+  "/images/ml.jpg",
   "/images/react2.webp",
   "/images/next2.webp",
   "/images/node2.webp",
@@ -22,7 +26,11 @@ const imageUrls = [
   "/images/typescript.webp",
   "/images/javascript.webp",
 ];
-const textures = imageUrls.map((url) => textureLoader.load(url));
+const textures = imageUrls.map((url) => {
+  const tex = textureLoader.load(url);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  return tex;
+});
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
@@ -126,31 +134,35 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
 
 const TechStack = () => {
   const [isActive, setIsActive] = useState(false);
+  const [isCanvasVisible, setIsCanvasVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
+      const workEl = document.getElementById("work");
+      if (!workEl) return;
       const scrollY = window.scrollY || document.documentElement.scrollTop;
-      const threshold = document
-        .getElementById("work")!
-        .getBoundingClientRect().top;
+      const threshold = workEl.getBoundingClientRect().top;
       setIsActive(scrollY > threshold);
     };
-    document.querySelectorAll(".header a").forEach((elem) => {
-      const element = elem as HTMLAnchorElement;
-      element.addEventListener("click", () => {
-        const interval = setInterval(() => {
-          handleScroll();
-        }, 10);
-        setTimeout(() => {
-          clearInterval(interval);
-        }, 1000);
-      });
-    });
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsCanvasVisible(entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
     };
   }, []);
+
   const materials = useMemo(() => {
     return textures.map(
       (texture) =>
@@ -166,12 +178,18 @@ const TechStack = () => {
     );
   }, []);
 
+  const sphereMaterials = useMemo(() => {
+    return spheres.map(() => materials[Math.floor(Math.random() * materials.length)]);
+  }, [materials]);
+
   return (
-    <div className="techstack">
+    <div className="techstack" ref={containerRef}>
       <h2> My Techstack</h2>
 
       <Canvas
         shadows
+        frameloop={isCanvasVisible ? "always" : "never"}
+        dpr={[1, 1.5]}
         gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
         camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
         onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
@@ -193,7 +211,7 @@ const TechStack = () => {
             <SphereGeo
               key={i}
               {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
+              material={sphereMaterials[i]}
               isActive={isActive}
             />
           ))}

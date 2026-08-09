@@ -6,6 +6,7 @@ interface Props {
   alt?: string;
   video?: string;
   link?: string;
+  description?: string;
 }
 
 const WorkImage = (props: Props) => {
@@ -38,6 +39,11 @@ const WorkImage = (props: Props) => {
         )}
         <img src={props.image} alt={props.alt} />
         {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
+        {props.description && (
+          <div className="work-hover-overlay">
+            <p>{props.description}</p>
+          </div>
+        )}
       </a>
     </div>
   );
