@@ -41,6 +41,15 @@ const Contact = () => {
             >
               Linkedin <MdArrowOutward />
             </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="disable"
+              className="contact-social"
+            >
+              Resume <MdArrowOutward />
+            </a>
           </div>
           <div className="contact-box">
             <h2>

@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import { FaGithub, FaLinkedinIn, FaFileLines } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
 import { useEffect } from "react";
@@ -62,6 +62,11 @@ const SocialIcons = () => {
         <span>
           <a href="https://www.linkedin.com/in/devang-khandelwal-495a81299" target="_blank" rel="noopener noreferrer">
             <FaLinkedinIn />
+          </a>
+        </span>
+        <span>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" title="Resume">
+            <FaFileLines />
           </a>
         </span>
       </div>
