@@ -15,13 +15,13 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>IBM Virtual Internship</h4>
-                <h5>FinTech Risk Engine Project</h5>
+                <h4>IBM Virtual Internship Program</h4>
+                <h5>LoanDefault FinTech Capstone Project</h5>
               </div>
-              <h3>2026</h3>
+              <h3>Jun 2026 – Jul 2026</h3>
             </div>
             <p>
-              Built LoanDefault, a full-stack FinTech risk-prediction platform (React, FastAPI, XGBoost) as capstone deliverable. Simplified agent workflow from 25+ manual fields to 5 inputs using dynamic backend calculation engines and integrated SHAP explainability.
+              Built LoanDefault, a full-stack FinTech risk-prediction platform using React, FastAPI, and XGBoost. Streamlined loan agent intake from 25 fields to 5 inputs and built UI components for SHAP explainability breakdown.
             </p>
           </div>
           <div className="career-info-box">

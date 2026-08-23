@@ -61,26 +61,26 @@ const Work = () => {
               category: "FinTech & Machine Learning",
               tools: "React, FastAPI, XGBoost, SHAP, Python",
               description:
-                "Full-stack FinTech platform predicting loan default risk with XGBoost, complete with SHAP explainability and PDF report generation.",
+                "Full-stack FinTech platform predicting loan default risk with XGBoost, featuring a 5-input workflow and SHAP explainability breakdown.",
               image: "/images/loandefault.png",
             },
             {
               num: "02",
+              title: "Self-Healing Data Pipeline Agent",
+              category: "AI Agents & Autonomous Systems",
+              tools: "Python, Scikit-learn, XGBoost, Flask, React, Pydantic",
+              description:
+                "3-layer data pipeline resilience system (ML anomaly detection, LLM diagnosis, auto-patching parser fixes) with 98.4% F1-score.",
+              image: "/images/smartticket.png",
+            },
+            {
+              num: "03",
               title: "Face Anti-Spoofing Research",
               category: "Computer Vision & Deep Learning",
               tools: "TensorFlow, EfficientNet-B0, CBAM, MediaPipe, Python",
               description:
                 "Co-authored research on an EfficientNet-B0 + CBAM model for real-time liveness detection — 90% accuracy at 14.8 FPS.",
               image: "/images/face_antispoofing.png",
-            },
-            {
-              num: "03",
-              title: "SmartTicket System",
-              category: "Full-Stack & Algorithms",
-              tools: "Django, DRF, PostgreSQL, Min-Heap, JWT, React",
-              description:
-                "A task management system with a min-heap-based algorithm that auto-assigns tickets by developer skill and workload.",
-              image: "/images/smartticket.png",
             },
           ].map((project, index) => (
             <div className="work-box" key={index}>
