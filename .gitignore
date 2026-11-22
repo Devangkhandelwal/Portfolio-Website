@@ -34,3 +34,7 @@ pnpm-debug.log*
 *.sw?
 .npmrc
 backup/
+# agent skills installed via `npx skills add`
+.agents/
+.claude/
+skills-lock.json
