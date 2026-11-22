@@ -13,9 +13,9 @@ const Navbar = () => {
     smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
-      smooth: 1.7,
-      speed: 1.7,
-      effects: true,
+      smooth: 1,
+      speed: 1.4,
+      effects: false,
       autoResize: true,
       ignoreMobileResize: true,
     });
@@ -35,22 +35,22 @@ const Navbar = () => {
         }
       });
     });
+    let refreshDebounce: ReturnType<typeof setTimeout>;
     const handleResize = () => {
-      ScrollTrigger.refresh();
+      clearTimeout(refreshDebounce);
+      refreshDebounce = setTimeout(() => ScrollTrigger.refresh(), 200);
     };
     window.addEventListener("resize", handleResize);
     window.addEventListener("load", handleResize);
 
-    const t1 = setTimeout(() => ScrollTrigger.refresh(), 500);
-    const t2 = setTimeout(() => ScrollTrigger.refresh(), 1500);
-    const t3 = setTimeout(() => ScrollTrigger.refresh(), 3000);
+    // one settling refresh once late content (fonts, images) has landed
+    const t1 = setTimeout(() => ScrollTrigger.refresh(), 1500);
 
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("load", handleResize);
+      clearTimeout(refreshDebounce);
       clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
     };
   }, []);
   return (

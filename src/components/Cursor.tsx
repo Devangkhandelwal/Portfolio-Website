@@ -21,10 +21,14 @@ const Cursor = () => {
 
     function loop() {
       if (!hover && cursor) {
-        const delay = 6;
-        cursorPos.x += (mousePos.x - cursorPos.x) / delay;
-        cursorPos.y += (mousePos.y - cursorPos.y) / delay;
-        gsap.set(cursor, { x: cursorPos.x, y: cursorPos.y });
+        const dx = mousePos.x - cursorPos.x;
+        const dy = mousePos.y - cursorPos.y;
+        if (Math.abs(dx) > 0.05 || Math.abs(dy) > 0.05) {
+          const delay = 6;
+          cursorPos.x += dx / delay;
+          cursorPos.y += dy / delay;
+          gsap.set(cursor, { x: cursorPos.x, y: cursorPos.y });
+        }
       }
       animId = requestAnimationFrame(loop);
     }
