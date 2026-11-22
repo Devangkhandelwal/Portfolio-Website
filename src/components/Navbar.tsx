@@ -57,6 +57,13 @@ const Navbar = () => {
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
+          <img
+            className="navbar-avatar"
+            src="/images/devang-avatar.webp"
+            alt="Devang Khandelwal"
+            width={36}
+            height={36}
+          />
           DEVANG
         </a>
         <a

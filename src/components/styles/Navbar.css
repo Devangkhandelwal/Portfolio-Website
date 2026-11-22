@@ -1,5 +1,7 @@
 .header {
   display: flex;
+  align-items: center;
+  gap: 30px;
   max-width: var(--cMaxWidth);
   width: var(--cWidth);
   justify-content: space-between;
@@ -44,6 +46,19 @@
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+.navbar-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 @media only screen and (min-width: 500px) {
   .header {
@@ -64,6 +79,9 @@
 @media only screen and (min-width: 1024px) {
   .navbar-connect {
     display: block;
+    position: static;
+    transform: none;
+    white-space: nowrap;
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -79,5 +97,9 @@
   }
   .navbar-title {
     font-size: 18px;
+  }
+  .navbar-avatar {
+    width: 36px;
+    height: 36px;
   }
 }

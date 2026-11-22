@@ -60,7 +60,7 @@ const SocialIcons = () => {
           </a>
         </span>
         <span>
-          <a href="https://www.linkedin.com/in/devang-khandelwal" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/devang-khandelwal-495a81299" target="_blank" rel="noopener noreferrer">
             <FaLinkedinIn />
           </a>
         </span>
