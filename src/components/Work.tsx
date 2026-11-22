@@ -39,6 +39,15 @@ const projects: Project[] = [
       "Co-authored research on an EfficientNet-B0 + CBAM model for real-time liveness detection — 90% accuracy at 14.8 FPS.",
     image: "/images/face_antispoofing.png",
   },
+  {
+    num: "04",
+    title: "Agentic RAG with Active Retrieval",
+    category: "LLM Systems & Information Retrieval",
+    tools: "Python, LangGraph, Qdrant, DistilBERT, Ollama, Gemini",
+    description:
+      "Six-block LangGraph RAG pipeline that decides whether to retrieve, critiques its own evidence, and NLI-verifies each claim — unsupported claims cut from 0.25 to 0.01.",
+    image: "/images/placeholder.webp",
+  },
 ];
 
 const Work = () => {
