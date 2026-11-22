@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import setCharacter from "./utils/character";
 import setLighting from "./utils/lighting";
@@ -12,6 +12,7 @@ import {
 } from "./utils/mouseUtils";
 import setAnimations from "./utils/animationUtils";
 import { setProgress } from "../Loading";
+import { killAllTimeline, killCharTimeline } from "../utils/GsapScroll";
 
 const Scene = () => {
   const canvasDiv = useRef<HTMLDivElement | null>(null);
@@ -19,7 +20,7 @@ const Scene = () => {
   const sceneRef = useRef(new THREE.Scene());
   const { setLoading } = useLoading();
 
-  const [character, setChar] = useState<THREE.Object3D | null>(null);
+  const characterRef = useRef<THREE.Object3D | null>(null);
   useEffect(() => {
     if (canvasDiv.current) {
       let rect = canvasDiv.current.getBoundingClientRect();
@@ -30,8 +31,11 @@ const Scene = () => {
 
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
-        antialias: true,
+        antialias: window.devicePixelRatio < 1.5,
+        powerPreference: "high-performance",
+        stencil: false,
       });
+      renderer.shadowMap.enabled = false;
       renderer.setSize(container.width, container.height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -54,7 +58,13 @@ const Scene = () => {
       let progress = setProgress((value) => setLoading(value));
       const { loadCharacter } = setCharacter(renderer, scene, camera);
 
-      const onResize = () => handleResize(renderer, camera, canvasDiv, character!);
+      let resizeDebounce: ReturnType<typeof setTimeout> | undefined;
+      const onResize = () => {
+        clearTimeout(resizeDebounce);
+        resizeDebounce = setTimeout(() => {
+          handleResize(renderer, camera, canvasDiv, characterRef.current);
+        }, 150);
+      };
 
       loadCharacter().then((gltf) => {
         if (gltf) {
@@ -62,7 +72,7 @@ const Scene = () => {
           hoverDivRef.current && animations.hover(gltf, hoverDivRef.current);
           mixer = animations.mixer;
           let character = gltf.scene;
-          setChar(character);
+          characterRef.current = character;
           scene.add(character);
           headBone = character.getObjectByName("spine006") || null;
           screenLight = character.getObjectByName("screenlight") || null;
@@ -121,10 +131,10 @@ const Scene = () => {
       const animate = () => {
         animId = requestAnimationFrame(animate);
         const delta = Math.min(clock.getDelta(), 0.1);
+        if (!isVisible) return;
         if (mixer) {
           mixer.update(delta);
         }
-        if (!isVisible) return;
 
         if (headBone) {
           handleHeadRotation(
@@ -141,9 +151,12 @@ const Scene = () => {
       };
       animate();
       return () => {
+        killCharTimeline();
+        killAllTimeline();
         observer.disconnect();
         cancelAnimationFrame(animId);
         clearTimeout(debounce);
+        clearTimeout(resizeDebounce);
         scene.clear();
         renderer.dispose();
         window.removeEventListener("resize", onResize);

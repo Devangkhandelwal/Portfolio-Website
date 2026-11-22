@@ -103,9 +103,14 @@
   position: absolute;
   max-width: 1920px;
   max-height: 1080px;
-  transform: translateX(-50%);
   width: 100%;
-  left: 50%;
+  /* Centred with auto margins rather than translateX(-50%): the scroll
+     timeline animates this element's `x`, and GSAP rewrites the whole
+     transform, which would wipe out a translate used for centring and snap
+     the character half a viewport to the right. */
+  left: 0;
+  right: 0;
+  margin-inline: auto;
   z-index: 0;
   bottom: 50px;
   pointer-events: inherit;
