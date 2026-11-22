@@ -19,7 +19,7 @@ const projects: Project[] = [
     tools: "React, FastAPI, XGBoost, SHAP, Python",
     description:
       "Full-stack FinTech platform predicting loan default risk with XGBoost, featuring a 5-input workflow and SHAP explainability breakdown.",
-    image: "/images/loandefault.png",
+    image: "/images/proj-loandefault.svg",
   },
   {
     num: "02",
@@ -28,7 +28,7 @@ const projects: Project[] = [
     tools: "Python, Scikit-learn, XGBoost, Flask, React, Pydantic",
     description:
       "3-layer data pipeline resilience system (ML anomaly detection, LLM diagnosis, auto-patching parser fixes) with 98.4% F1-score.",
-    image: "/images/smartticket.png",
+    image: "/images/proj-selfhealing.svg",
   },
   {
     num: "03",
@@ -37,7 +37,8 @@ const projects: Project[] = [
     tools: "TensorFlow, EfficientNet-B0, CBAM, MediaPipe, Python",
     description:
       "Co-authored research on an EfficientNet-B0 + CBAM model for real-time liveness detection — 90% accuracy at 14.8 FPS.",
-    image: "/images/face_antispoofing.png",
+    image: "/images/proj-antispoofing.svg",
+    link: "https://github.com/Devangkhandelwal/face_anti_spoofing_project",
   },
   {
     num: "04",
@@ -46,7 +47,8 @@ const projects: Project[] = [
     tools: "Python, LangGraph, Qdrant, DistilBERT, Ollama, Gemini",
     description:
       "Six-block LangGraph RAG pipeline that decides whether to retrieve, critiques its own evidence, and NLI-verifies each claim — unsupported claims cut from 0.25 to 0.01.",
-    image: "/images/placeholder.webp",
+    image: "/images/proj-agentic-rag.svg",
+    link: "https://github.com/Devangkhandelwal/Agentic_RAG",
   },
 ];
 

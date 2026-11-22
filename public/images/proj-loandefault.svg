@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" role="img" aria-label="Loan default risk engine: five applicant inputs feed an XGBoost model that returns a risk score with SHAP contributions">
+  <defs>
+    <radialGradient id="ld-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6b4ad6" stop-opacity="0.40"/>
+      <stop offset="100%" stop-color="#6b4ad6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ld-bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8b6cf0"/>
+      <stop offset="100%" stop-color="#c2a4ff"/>
+    </linearGradient>
+    <style>
+      .t  { font-family: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+      .h  { font-size: 34px; font-weight: 600; fill: #eae5ec; }
+      .s  { font-size: 22px; font-weight: 400; fill: #c2a4ff; }
+      .n  { font-size: 25px; font-weight: 600; fill: #eae5ec; }
+      .m  { font-size: 20px; font-weight: 400; fill: #9b93a8; }
+      .big{ font-size: 54px; font-weight: 600; fill: #eae5ec; }
+    </style>
+  </defs>
+
+  <circle cx="880" cy="120" r="260" fill="url(#ld-glow)"/>
+  <circle cx="90" cy="600" r="210" fill="url(#ld-glow)"/>
+  <rect x="24" y="24" width="952" height="592" rx="22" fill="#100e16" stroke="#2a2733" stroke-width="1.5"/>
+
+  <text class="t h" x="64" y="94">Loan default risk</text>
+  <text class="t s" x="64" y="130">5 inputs → XGBoost → explainable score</text>
+
+  <!-- inputs -->
+  <rect x="64" y="176" width="252" height="188" rx="14" fill="#171522" stroke="#332f40"/>
+  <text class="t m" x="88" y="208">APPLICANT</text>
+  <text class="t n" x="88" y="248">CIBIL 790</text>
+  <text class="t m" x="88" y="284">Income · Tenure</text>
+  <text class="t m" x="88" y="314">Loan 50,00,000</text>
+  <text class="t m" x="88" y="344">EMI history</text>
+
+  <path d="M332 270 h56" stroke="#5b5470" stroke-width="2.5" fill="none"/>
+  <path d="M380 262 l12 8 -12 8 z" fill="#5b5470"/>
+
+  <!-- model -->
+  <rect x="404" y="176" width="200" height="188" rx="14" fill="#171522" stroke="#4a3f73"/>
+  <text class="t m" x="428" y="208">MODEL</text>
+  <text class="t n" x="428" y="252">XGBoost</text>
+  <g stroke="#8b6cf0" stroke-width="2.5" fill="none">
+    <path d="M504 282 v26 M504 308 h-42 v26 M504 308 h42 v26"/>
+  </g>
+  <circle cx="504" cy="278" r="6" fill="#c2a4ff"/>
+  <circle cx="462" cy="338" r="6" fill="#8b6cf0"/>
+  <circle cx="546" cy="338" r="6" fill="#8b6cf0"/>
+
+  <path d="M620 270 h56" stroke="#5b5470" stroke-width="2.5" fill="none"/>
+  <path d="M668 262 l12 8 -12 8 z" fill="#5b5470"/>
+
+  <!-- score -->
+  <rect x="692" y="176" width="244" height="188" rx="14" fill="#171522" stroke="#332f40"/>
+  <text class="t m" x="716" y="208">DEFAULT RISK</text>
+  <text class="t big" x="716" y="282">Low</text>
+  <rect x="716" y="306" width="196" height="12" rx="6" fill="#2a2636"/>
+  <rect x="716" y="306" width="44" height="12" rx="6" fill="url(#ld-bar)"/>
+  <text class="t m" x="716" y="348">p = 0.18</text>
+
+  <!-- shap -->
+  <rect x="64" y="400" width="872" height="186" rx="14" fill="#141220" stroke="#2a2733"/>
+  <text class="t m" x="88" y="434">WHY — SHAP CONTRIBUTIONS</text>
+
+  <text class="t m" x="88" y="486">CIBIL</text>
+  <rect x="210" y="468" width="300" height="22" rx="11" fill="url(#ld-bar)"/>
+  <text class="t m" x="528" y="486">−0.21</text>
+
+  <text class="t m" x="88" y="532">Tenure</text>
+  <rect x="210" y="514" width="188" height="22" rx="11" fill="#6b57c4"/>
+  <text class="t m" x="528" y="532">+0.12</text>
+
+  <text class="t m" x="88" y="572">Income</text>
+  <rect x="210" y="554" width="116" height="22" rx="11" fill="#4b3f84"/>
+  <text class="t m" x="528" y="572">−0.07</text>
+</svg>

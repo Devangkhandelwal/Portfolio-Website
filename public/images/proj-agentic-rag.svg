@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" role="img" aria-label="Agentic RAG: a classifier decides whether to retrieve, a critic checks the evidence in a bounded retry loop, and every claim is verified against the sources">
+  <defs>
+    <radialGradient id="ar-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6b4ad6" stop-opacity="0.40"/>
+      <stop offset="100%" stop-color="#6b4ad6" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .t  { font-family: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+      .h  { font-size: 34px; font-weight: 600; fill: #eae5ec; }
+      .s  { font-size: 22px; font-weight: 400; fill: #c2a4ff; }
+      .n  { font-size: 24px; font-weight: 600; fill: #eae5ec; }
+      .m  { font-size: 19px; font-weight: 400; fill: #9b93a8; }
+      .k  { font-size: 17px; font-weight: 600; fill: #c2a4ff; letter-spacing: 1px; }
+    </style>
+  </defs>
+
+  <circle cx="120" cy="120" r="250" fill="url(#ar-glow)"/>
+  <circle cx="900" cy="580" r="230" fill="url(#ar-glow)"/>
+  <rect x="24" y="24" width="952" height="592" rx="22" fill="#100e16" stroke="#2a2733" stroke-width="1.5"/>
+
+  <text class="t h" x="64" y="88">Agentic RAG</text>
+  <text class="t s" x="64" y="122">decides whether to retrieve, then checks its own answer</text>
+
+  <!-- answer card (top right) -->
+  <rect x="674" y="150" width="262" height="100" rx="14" fill="#171522" stroke="#332f40"/>
+  <text class="t k" x="698" y="182">04 ANSWER</text>
+  <text class="t m" x="698" y="210">from approved chunks,</text>
+  <text class="t m" x="698" y="234">with citations</text>
+
+  <!-- question -->
+  <rect x="64" y="306" width="136" height="86" rx="14" fill="#171522" stroke="#332f40"/>
+  <text class="t m" x="88" y="340">QUESTION</text>
+  <g fill="#4a4459">
+    <rect x="88" y="354" width="88" height="11" rx="5"/>
+    <rect x="88" y="372" width="60" height="11" rx="5"/>
+  </g>
+
+  <path d="M214 349 h26" stroke="#5b5470" stroke-width="2.5" fill="none"/>
+  <path d="M234 341 l12 8 -12 8 z" fill="#5b5470"/>
+
+  <!-- classify -->
+  <rect x="258" y="296" width="156" height="106" rx="14" fill="#171522" stroke="#4a3f73"/>
+  <text class="t k" x="282" y="328">01 CLASSIFY</text>
+  <text class="t n" x="282" y="360">Retrieve?</text>
+  <text class="t m" x="282" y="386">DistilBERT</text>
+
+  <!-- skip branch: straight to the answer, never touching the store -->
+  <path d="M336 288 V214 a14 14 0 0 1 14 -14 H662"
+        stroke="#4a4459" stroke-width="2.5" fill="none" stroke-dasharray="7 7"/>
+  <path d="M656 192 l12 8 -12 8 z" fill="#4a4459"/>
+  <text class="t m" x="392" y="190">no — skip the store</text>
+
+  <path d="M430 349 h26" stroke="#5b5470" stroke-width="2.5" fill="none"/>
+  <path d="M450 341 l12 8 -12 8 z" fill="#5b5470"/>
+
+  <!-- retrieve -->
+  <rect x="474" y="296" width="156" height="106" rx="14" fill="#171522" stroke="#4a3f73"/>
+  <text class="t k" x="498" y="328">02 RETRIEVE</text>
+  <text class="t n" x="498" y="360">Qdrant</text>
+  <text class="t m" x="498" y="386">top-5 chunks</text>
+
+  <path d="M646 349 h26" stroke="#5b5470" stroke-width="2.5" fill="none"/>
+  <path d="M666 341 l12 8 -12 8 z" fill="#5b5470"/>
+
+  <!-- critic -->
+  <rect x="690" y="296" width="156" height="106" rx="14" fill="#171522" stroke="#4a3f73"/>
+  <text class="t k" x="714" y="328">03 CRITIC</text>
+  <text class="t n" x="714" y="360">Enough</text>
+  <text class="t n" x="714" y="386">evidence?</text>
+
+  <!-- sufficient: up to the answer -->
+  <path d="M768 290 V268" stroke="#5b5470" stroke-width="2.5" fill="none"/>
+  <path d="M760 268 l8 -12 8 12 z" fill="#5b5470"/>
+
+  <!-- bounded retry loop back to retrieve -->
+  <path d="M846 349 h40 a14 14 0 0 1 14 14 v62 a14 14 0 0 1 -14 14 H566 a14 14 0 0 1 -14 -14 v-23"
+        stroke="#8b6cf0" stroke-width="2.5" fill="none" stroke-dasharray="7 7"/>
+  <path d="M544 418 l8 -14 8 14 z" fill="#8b6cf0"/>
+  <text class="t s" x="602" y="462">no — retry, max 2</text>
+
+  <!-- verification outcome -->
+  <rect x="64" y="496" width="872" height="96" rx="14" fill="#141220" stroke="#2a2733"/>
+  <text class="t k" x="92" y="530">05 VERIFY — EVERY CLAIM NLI-CHECKED</text>
+  <text class="t m" x="92" y="566">unsupported claims</text>
+  <text class="t n" x="278" y="566">0.25 → 0.01</text>
+  <text class="t m" x="470" y="566">abstains when the answer is absent</text>
+  <text class="t n" x="856" y="566">88%</text>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" role="img" aria-label="Self-healing data pipeline: an anomaly detector, an LLM diagnosis step and an auto-patching parser fix that lets the run continue">
+  <defs>
+    <radialGradient id="sh-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6b4ad6" stop-opacity="0.40"/>
+      <stop offset="100%" stop-color="#6b4ad6" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .t  { font-family: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+      .h  { font-size: 34px; font-weight: 600; fill: #eae5ec; }
+      .s  { font-size: 22px; font-weight: 400; fill: #c2a4ff; }
+      .n  { font-size: 25px; font-weight: 600; fill: #eae5ec; }
+      .m  { font-size: 20px; font-weight: 400; fill: #9b93a8; }
+      .k  { font-size: 18px; font-weight: 600; fill: #c2a4ff; letter-spacing: 1px; }
+    </style>
+  </defs>
+
+  <circle cx="110" cy="110" r="250" fill="url(#sh-glow)"/>
+  <circle cx="900" cy="570" r="230" fill="url(#sh-glow)"/>
+  <rect x="24" y="24" width="952" height="592" rx="22" fill="#100e16" stroke="#2a2733" stroke-width="1.5"/>
+
+  <text class="t h" x="64" y="94">Self-healing pipeline</text>
+  <text class="t s" x="64" y="130">detect → diagnose → patch, without stopping the run</text>
+
+  <!-- incoming -->
+  <rect x="64" y="188" width="150" height="150" rx="14" fill="#171522" stroke="#332f40"/>
+  <text class="t m" x="88" y="222">INGEST</text>
+  <g fill="#4a4459">
+    <rect x="88" y="244" width="102" height="13" rx="6"/>
+    <rect x="88" y="268" width="80" height="13" rx="6"/>
+    <rect x="88" y="292" width="94" height="13" rx="6"/>
+  </g>
+  <rect x="88" y="268" width="80" height="13" rx="6" fill="#e5737f"/>
+
+  <path d="M226 263 h22" stroke="#5b5470" stroke-width="2.5" fill="none"/>
+  <path d="M242 255 l12 8 -12 8 z" fill="#5b5470"/>
+
+  <!-- layer 1 -->
+  <rect x="266" y="188" width="190" height="150" rx="14" fill="#171522" stroke="#4a3f73"/>
+  <text class="t k" x="290" y="220">01 DETECT</text>
+  <text class="t n" x="290" y="258">Anomaly</text>
+  <text class="t n" x="290" y="288">model</text>
+  <text class="t m" x="290" y="320">98.4% F1</text>
+
+  <path d="M468 263 h22" stroke="#5b5470" stroke-width="2.5" fill="none"/>
+  <path d="M484 255 l12 8 -12 8 z" fill="#5b5470"/>
+
+  <!-- layer 2 -->
+  <rect x="508" y="188" width="190" height="150" rx="14" fill="#171522" stroke="#4a3f73"/>
+  <text class="t k" x="532" y="220">02 DIAGNOSE</text>
+  <text class="t n" x="532" y="258">LLM reads</text>
+  <text class="t n" x="532" y="288">the failure</text>
+
+  <path d="M710 263 h22" stroke="#5b5470" stroke-width="2.5" fill="none"/>
+  <path d="M726 255 l12 8 -12 8 z" fill="#5b5470"/>
+
+  <!-- layer 3 -->
+  <rect x="750" y="188" width="190" height="150" rx="14" fill="#171522" stroke="#4a3f73"/>
+  <text class="t k" x="774" y="220">03 PATCH</text>
+  <text class="t n" x="774" y="258">Parser</text>
+  <text class="t n" x="774" y="288">rewrite</text>
+
+  <!-- healing loop back to ingest -->
+  <path d="M845 352 v56 a14 14 0 0 1 -14 14 H153 a14 14 0 0 1 -14 -14 v-56"
+        stroke="#8b6cf0" stroke-width="2.5" fill="none" stroke-dasharray="7 7"/>
+  <path d="M131 360 l8 -14 8 14 z" fill="#8b6cf0"/>
+  <text class="t s" x="330" y="452">patched rule re-applied — the run continues</text>
+
+  <!-- outcome -->
+  <rect x="64" y="486" width="872" height="100" rx="14" fill="#141220" stroke="#2a2733"/>
+  <text class="t m" x="92" y="524">BEFORE</text>
+  <text class="t n" x="92" y="560">pipeline halts on a malformed batch</text>
+  <path d="M560 536 h40" stroke="#5b5470" stroke-width="2.5" fill="none"/>
+  <path d="M592 528 l12 8 -12 8 z" fill="#5b5470"/>
+  <text class="t m" x="624" y="524">AFTER</text>
+  <text class="t n" x="624" y="560">self-patches</text>
+</svg>
