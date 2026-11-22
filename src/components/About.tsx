@@ -6,7 +6,7 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          I'm Devang, a CS undergraduate at UPES Dehradun who likes building things end-to-end rather than stopping at a notebook or a mockup. I work across the stack — Python/Django/FastAPI on the backend, React on the front, and machine learning when a problem calls for it — and I care as much about the algorithm behind a feature as I do about whether it actually ships. Outside of coursework, I spend time solving DSA problems (200+ on LeetCode) and recently co-authored a research paper on real-time face anti-spoofing using attention-based deep learning.
+          I'm Devang, a Computer Science undergraduate at UPES Dehradun, and I build LLM and machine learning systems end-to-end rather than leaving them in a notebook — agentic RAG pipelines in LangGraph, retrieval over Qdrant and FAISS, classical models with XGBoost and Transformers, shipped behind FastAPI and React. What I care about most is whether a model can be trusted: measuring it against real baselines, making it explain itself through SHAP or attention maps, and letting it say nothing when the evidence isn't there. Recently I built LoanDefault for IBM's capstone programme on 1.2M+ lending records, and co-authored a research paper on real-time face anti-spoofing.
         </p>
       </div>
     </div>

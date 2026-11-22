@@ -122,17 +122,27 @@ body {
   }
 }
 
-/* Static stack shown instead of the physics canvas on weak GPUs. */
+/* Static stack shown instead of the physics canvas on weak GPUs. The section
+   is normally a fixed-height stage with an absolutely positioned heading,
+   sized for a canvas; with chips it becomes an ordinary flow block so the
+   list can be as tall as it needs without colliding with the heading. */
+.low-power .techstack {
+  height: auto;
+  margin-bottom: 0;
+  padding-bottom: 90px;
+}
+.low-power .techstack h2 {
+  position: static;
+  width: auto;
+  padding-top: 40px;
+  margin: 0 0 46px;
+}
 .tech-grid {
-  position: absolute;
-  /* clears the absolutely positioned section heading at the top */
-  inset: 230px 0 40px;
-  margin: 0;
   display: flex;
   flex-wrap: wrap;
-  align-content: center;
   justify-content: center;
   gap: 16px;
+  margin: 0;
   padding: 0 6%;
   list-style: none;
 }
@@ -156,7 +166,6 @@ body {
 }
 @media only screen and (max-width: 1100px) {
   .tech-grid {
-    inset: 170px 0 30px;
     gap: 12px;
   }
   .tech-chip {

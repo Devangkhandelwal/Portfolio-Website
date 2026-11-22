@@ -12,19 +12,16 @@ import {
 } from "@react-three/rapier";
 
 const textureLoader = new THREE.TextureLoader();
+// Only marks that appear on the resume. Next.js, Node, Express, MongoDB and
+// TypeScript textures exist in /images but are not part of the stack, so the
+// spheres would be claiming skills the CV does not.
 const imageUrls = [
   "/images/python.jpg",
   "/images/cpp.png",
   "/images/fastapi.png",
   "/images/ml.jpg",
   "/images/react2.webp",
-  "/images/next2.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
-  "/images/mongo.webp",
   "/images/mysql.webp",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
 ];
 const textures = imageUrls.map((url) => {
   const tex = textureLoader.load(url);

@@ -9,17 +9,23 @@ const TechStackCanvas = lazy(() => import("./TechStackCanvas"));
 
 const stack = [
   "Python",
+  "SQL",
   "C++",
-  "TypeScript",
-  "JavaScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Express",
+  "LangGraph",
+  "RAG",
+  "Qdrant",
+  "FAISS",
+  "Gemini API",
+  "Ollama",
+  "Hugging Face",
+  "XGBoost",
+  "Scikit-learn",
+  "TensorFlow",
   "FastAPI",
-  "MongoDB",
-  "MySQL",
-  "Machine Learning",
+  "Flask",
+  "React",
+  "Streamlit",
+  "Pydantic",
 ];
 
 // The sphere textures are wrap maps with each logo repeated across the
