@@ -27,7 +27,6 @@
   border-left: 4px solid var(--accentColor, #9d50bb);
   padding: 30px 40px;
   border-radius: 0 16px 16px 0;
-  backdrop-filter: blur(10px);
   position: relative;
 }
 
