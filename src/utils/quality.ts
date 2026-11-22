@@ -86,8 +86,16 @@ export function getInitialTier(): QualityTier {
  * Samples real frame times and remembers the verdict for the next visit.
  * Deliberately conservative: it only ever downgrades, and only with enough
  * clean samples, so an occluded window never demotes a capable machine.
+ *
+ * It only runs on the high tier. A low-tier page has no WebGL running, so it
+ * is fast on any hardware -- measuring there would "prove" every weak machine
+ * is capable and flip it back to the 3D version on the next visit.
  */
-export function measureTier(onDowngrade?: () => void): () => void {
+export function measureTier(
+  currentTier: QualityTier,
+  onDowngrade?: () => void
+): () => void {
+  if (currentTier === "low") return () => {};
   if (overrideFromUrl()) return () => {};
 
   const samples: number[] = [];

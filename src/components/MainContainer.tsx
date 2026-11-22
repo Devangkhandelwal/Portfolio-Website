@@ -47,8 +47,8 @@ const MainContainer = ({ children }: PropsWithChildren) => {
   }, [show3D]);
 
   useEffect(() => {
-    return measureTier(() => setCanvasTier("low"));
-  }, []);
+    return measureTier(tier, () => setCanvasTier("low"));
+  }, [tier]);
 
   // The character normally drives the loading progress and builds the scroll
   // timelines once its model is ready. Without it, nothing would ever reach
