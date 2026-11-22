@@ -69,3 +69,19 @@
     line-height: 2.7rem;
   }
 }
+
+/* Without the 3D character the left half of this section is empty, so the
+   paragraph is centred instead of held to the right. Slightly wider measure
+   and a touch more size, since it is now the only thing on screen. */
+@media only screen and (min-width: 1025px) {
+  .low-power .about-section {
+    justify-content: center;
+  }
+  .low-power .about-me {
+    width: min(72%, 980px);
+  }
+  .low-power .about-me p {
+    font-size: clamp(22px, 2.05vw, 38px);
+    line-height: 1.26;
+  }
+}
