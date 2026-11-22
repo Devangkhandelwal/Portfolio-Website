@@ -121,3 +121,46 @@ body {
     font-size: 40px;
   }
 }
+
+/* Static stack shown instead of the physics canvas on weak GPUs. */
+.tech-grid {
+  position: absolute;
+  /* clears the absolutely positioned section heading at the top */
+  inset: 230px 0 40px;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 6%;
+  list-style: none;
+}
+.tech-chip {
+  font-family: "Geist", sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #eae5ec;
+  padding: 13px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.25s ease, transform 0.25s ease,
+    background-color 0.25s ease;
+}
+.tech-chip:hover {
+  border-color: var(--accentColor);
+  background-color: rgba(255, 255, 255, 0.06);
+  transform: translateY(-3px);
+}
+@media only screen and (max-width: 1100px) {
+  .tech-grid {
+    inset: 170px 0 30px;
+    gap: 12px;
+  }
+  .tech-chip {
+    font-size: 15px;
+    padding: 11px 20px;
+  }
+}

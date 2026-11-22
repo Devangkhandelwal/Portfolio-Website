@@ -391,3 +391,9 @@
     line-height: 6.8rem;
   }
 }
+
+/* Normally un-hidden by the character's scroll timeline, which never runs
+   when the 3D scene is disabled. */
+.low-power .what-box-in {
+  display: flex;
+}
